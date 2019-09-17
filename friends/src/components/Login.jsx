@@ -1,6 +1,7 @@
 import React from "react";
 import { Form as Formik, Field, withFormik } from "formik";
 import { Segment, Button, Form } from "semantic-ui-react";
+import axios from "axios";
 
 const Login = props => {
   return (
@@ -26,10 +27,20 @@ const FormikForm = withFormik({
       username: values.username || "",
       password: values.password || ""
     };
+  },
+  handleSubmit(values, props) {
+    axios
+      .post("/api/login", values)
+      .then(res => {
+        localStorage.setItem("token", res.data.token);
+        console.log("res", res);
+      })
+      .then(res =>
+        setTimeout(() => {
+          props.props.history.push("/display");
+        }, 1000)
+      )
+      .catch(err => console.log(err));
   }
-  //   handleSubmit(values,props){
-  //       .post("")
-  //     .then(res => )
-  //   }
 })(Login);
 export default FormikForm;
