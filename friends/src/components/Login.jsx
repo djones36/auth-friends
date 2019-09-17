@@ -1,20 +1,22 @@
 import React from "react";
 import { Form as Formik, Field, withFormik } from "formik";
-import { Button, Form } from "semantic-ui-react";
+import { Segment, Button, Form } from "semantic-ui-react";
 
 const Login = props => {
   return (
-    <Form>
-      <Formik>
-        <Form.Field>
-          <Field type="text" name="username" placeholder="username" />
-        </Form.Field>
-        <Form.Field>
-          <Field type="password" name="password" placeholder="password" />
-        </Form.Field>
-        <Button type="submit">Login</Button>
-      </Formik>
-    </Form>
+    <Segment raised compact>
+      <Form>
+        <Formik>
+          <Form.Field>
+            <Field type="text" name="username" placeholder="username" />
+          </Form.Field>
+          <Form.Field>
+            <Field type="password" name="password" placeholder="password" />
+          </Form.Field>
+          <Button type="submit">Login</Button>
+        </Formik>
+      </Form>
+    </Segment>
   );
 };
 
@@ -25,5 +27,9 @@ const FormikForm = withFormik({
       password: values.password || ""
     };
   }
+  //   handleSubmit(values,props){
+  //       .post("")
+  //     .then(res => )
+  //   }
 })(Login);
 export default FormikForm;
