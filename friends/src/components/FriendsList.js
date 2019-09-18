@@ -18,7 +18,14 @@ const FriendsList = props => {
 
   return (
     <div>
-      <NavLink to="/">Log Out</NavLink>
+      <NavLink
+        onClick={() => {
+          localStorage.removeItem("token");
+          window.location = "/";
+        }}
+      >
+        Log Out
+      </NavLink>
       <h2>My Friends</h2>
       <div className="FriendsCard">
         {friend.map(friend => (
