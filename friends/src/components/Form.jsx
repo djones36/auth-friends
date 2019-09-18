@@ -6,28 +6,30 @@ import * as Yup from "yup";
 
 const FriendsForm = props => {
   return (
-    <Segment raised compact>
-      <Form>
-        <Formik className="add_friend">
-          <Form.Field>
-            <Field type="text" name="name" placeholder="name" required />
-          </Form.Field>
-          <Form.Field>
-            <Field
-              type="number"
-              min="0"
-              name="age"
-              placeholder="age"
-              required
-            />
-          </Form.Field>
-          <Form.Field>
-            <Field type="email" name="email" placeholder="email" required />
-          </Form.Field>
-          <Button type="submit">Submit</Button>
-        </Formik>
-      </Form>
-    </Segment>
+    <div className="wrapper">
+      <Segment className="add_friend">
+        <Form>
+          <Formik>
+            <Form.Field>
+              <Field type="text" name="name" placeholder="name" required />
+            </Form.Field>
+            <Form.Field>
+              <Field
+                type="number"
+                min="0"
+                name="age"
+                placeholder="age"
+                required
+              />
+            </Form.Field>
+            <Form.Field>
+              <Field type="email" name="email" placeholder="email" required />
+            </Form.Field>
+            <Button type="submit">Submit</Button>
+          </Formik>
+        </Form>
+      </Segment>
+    </div>
   );
 };
 

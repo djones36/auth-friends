@@ -9,6 +9,7 @@
   width: 1024px;
   margin: 0 auto;
 }
+
 .ui.card {
   width: 100%;
 }
@@ -17,8 +18,19 @@
 }
 .ui.compact.raised.segment {
   display: flex;
+  width: 50%;
 }
 .add_friend {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  width: 232px;
+  border: 2px red solid;
+}
+.wrapper {
+  border: 2px red solid;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }
