@@ -32,7 +32,7 @@ const FormikForm = withFormik({
     axiosWithAuth()
       .post("/login", values)
       .then(res => {
-        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("token", res.data.payload);
         console.log("res", res);
       })
       .then(res =>
