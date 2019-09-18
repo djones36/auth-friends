@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import FriendsCard from "./FriendsCard";
 import FriendsForm from "./Form";
 import { axiosWithAuth } from "../utlities/AxiosWithAuth";
+import { NavLink } from "react-router-dom";
 
 const FriendsList = props => {
   const [friend, setFriend] = useState([]);
@@ -17,7 +18,8 @@ const FriendsList = props => {
 
   return (
     <div>
-      <h2>Create a New Friend</h2>
+      <NavLink to="/">Log Out</NavLink>
+      <h2>My Friends</h2>
       <div className="FriendsCard">
         {friend.map(friend => (
           <FriendsCard key={friend.id} friend={friend} />

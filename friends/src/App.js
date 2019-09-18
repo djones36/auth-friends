@@ -10,7 +10,6 @@ function App() {
     <Router>
       <div className="App">
         <h1>Friends with Authorization</h1>
-        <h2>Please Login</h2>
         <Route exact path="/" component={LoginForm} />
         <PrivateRoute exact path="/friends" component={FriendsList} />
       </div>
