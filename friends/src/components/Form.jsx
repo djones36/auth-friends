@@ -35,18 +35,12 @@ const FormikForm = withFormik({
       email: values.email || ""
     };
   },
-  handleSubmit(values, props) {
+  handleSubmit(values, { setStatus }) {
     axiosWithAuth()
-      .post("login", values)
+      .post("/login", values)
       .then(res => {
-        localStorage.setItem("token", res.data.token);
-        console.log("res", res);
+        setStatus(res.data);
       })
-      .then(res =>
-        setTimeout(() => {
-          props.props.history.push("/display");
-        }, 1000)
-      )
       .catch(err => console.log(err));
   }
 })(FriendsForm);

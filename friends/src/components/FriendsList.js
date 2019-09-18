@@ -14,6 +14,11 @@ const FriendsList = props => {
       })
       .catch(err => console.log("error", err.res));
   }, []);
+  //   const addFriend = friend =>{
+  //       axiosWithAuth()
+  //       .post('/friends')
+  //       .then()
+  //   }
 
   return (
     <div>
