@@ -37,7 +37,7 @@ const FormikForm = withFormik({
       })
       .then(res =>
         setTimeout(() => {
-          props.props.history.push("/display");
+          props.props.history.push("/friends");
         }, 1000)
       )
       .catch(err => console.log(err));

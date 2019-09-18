@@ -1,14 +1,14 @@
 import React from "react";
-
-const FriendsCard = () => {
+import { Card } from "semantic-ui-react";
+const FriendsCard = ({ friend }) => {
   return (
     <Card>
       <Card.Content>
-        <Card.Header>{props.name}</Card.Header>
+        <Card.Header>{friend.name}</Card.Header>
         <Card.Meta>
-          ID: {props.id}, AGE: {props.age}
+          ID: {friend.id}, AGE: {friend.age}
         </Card.Meta>
-        <Card.Description>EMAIL: {props.email}</Card.Description>
+        <Card.Description>EMAIL: {friend.email}</Card.Description>
       </Card.Content>
     </Card>
   );
