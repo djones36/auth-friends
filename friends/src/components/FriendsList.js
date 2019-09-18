@@ -1,10 +1,11 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import FriendsCard from "./FriendsCard";
 import FriendsForm from "./Form";
 import { axiosWithAuth } from "../utlities/AxiosWithAuth";
 
-const FriendsList = () => {
+const FriendsList = props => {
   const [friend, setFriend] = useState([]);
+
   useEffect(() => {
     axiosWithAuth()
       .get("/friends")
@@ -16,6 +17,7 @@ const FriendsList = () => {
 
   return (
     <div>
+      <h2>Create a New Friend</h2>
       <div className="FriendsCard">
         {friend.map(friend => (
           <FriendsCard key={friend.id} friend={friend} />
