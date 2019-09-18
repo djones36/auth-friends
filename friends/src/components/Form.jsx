@@ -13,7 +13,13 @@ const FriendsForm = props => {
             <Field type="text" name="name" placeholder="name" required />
           </Form.Field>
           <Form.Field>
-            <Field type="number" name="age" placeholder="age" required />
+            <Field
+              type="number"
+              min="0"
+              name="age"
+              placeholder="age"
+              required
+            />
           </Form.Field>
           <Form.Field>
             <Field type="email" name="email" placeholder="email" required />
