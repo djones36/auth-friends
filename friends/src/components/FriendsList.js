@@ -14,11 +14,6 @@ const FriendsList = props => {
       })
       .catch(err => console.log("error", err.res));
   }, []);
-  //   const addFriend = friend =>{
-  //       axiosWithAuth()
-  //       .post('/friends')
-  //       .then()
-  //   }
 
   return (
     <div>
@@ -28,6 +23,7 @@ const FriendsList = props => {
           <FriendsCard key={friend.id} friend={friend} />
         ))}
       </div>
+
       <h2>Create a New Friend</h2>
       <FriendsForm />
     </div>

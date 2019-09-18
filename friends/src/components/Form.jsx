@@ -8,9 +8,6 @@ const FriendsForm = props => {
       <Form>
         <Formik>
           <Form.Field>
-            <Field type="text" name="id" placeholder="id" />
-          </Form.Field>
-          <Form.Field>
             <Field type="text" name="name" placeholder="name" />
           </Form.Field>
           <Form.Field>
@@ -29,18 +26,24 @@ const FriendsForm = props => {
 const FormikForm = withFormik({
   mapPropsToValues(values) {
     return {
-      id: values.id || "",
       name: values.name || "",
       age: values.age || "",
       email: values.email || ""
     };
   },
-  handleSubmit(values, { setStatus }) {
+  handleSubmit(values, { setStatus, resetForm, setSubmitting }, props) {
     axiosWithAuth()
-      .post("/login", values)
+      .post("/friends", values)
       .then(res => {
         setStatus(res.data);
+        resetForm("");
+        setSubmitting(false);
       })
+      .then(res =>
+        setTimeout(() => {
+          window.location = "/friends";
+        }, 1000)
+      )
       .catch(err => console.log(err));
   }
 })(FriendsForm);
