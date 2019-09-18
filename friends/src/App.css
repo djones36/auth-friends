@@ -15,3 +15,11 @@
 .App-link {
   color: #61dafb;
 }
+.ui.compact.raised.segment {
+  display: flex;
+}
+.add_friend {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+}

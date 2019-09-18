@@ -8,7 +8,7 @@ const FriendsForm = props => {
   return (
     <Segment raised compact>
       <Form>
-        <Formik>
+        <Formik className="add_friend">
           <Form.Field>
             <Field type="text" name="name" placeholder="name" required />
           </Form.Field>
