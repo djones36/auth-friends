@@ -1,7 +1,7 @@
 import React from "react";
 import { Form as Formik, Field, withFormik } from "formik";
 import { Segment, Button, Form } from "semantic-ui-react";
-import axios from "axios";
+import { axiosWithAuth } from "../utlities/AxiosWithAuth";
 
 const Login = props => {
   return (
@@ -29,8 +29,8 @@ const FormikForm = withFormik({
     };
   },
   handleSubmit(values, props) {
-    axios
-      .post("/api/login", values)
+    axiosWithAuth()
+      .post("/login", values)
       .then(res => {
         localStorage.setItem("token", res.data.token);
         console.log("res", res);
