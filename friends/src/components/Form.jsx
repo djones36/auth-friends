@@ -43,7 +43,7 @@ const FormikForm = withFormik({
     name: Yup.string().required("required"),
     age: Yup.number().required("required")
   }),
-  handleSubmit(values, { setStatus, resetForm, setSubmitting }, props) {
+  handleSubmit(values, { setStatus, resetForm, setSubmitting }, event) {
     axiosWithAuth()
       .post("/friends", values)
       .then(res => {
@@ -51,11 +51,11 @@ const FormikForm = withFormik({
         resetForm("");
         setSubmitting(false);
       })
-      .then(res =>
-        setTimeout(() => {
-          window.location = "/friends";
-        }, 1000)
-      )
+      // //   .then(res =>
+      // //     setTimeout(() => {
+      // //       window.location = "/friends";
+      // //     }, 1000)
+      //   )
       .catch(err => console.log(err));
   }
 })(FriendsForm);
