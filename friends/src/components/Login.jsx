@@ -28,6 +28,7 @@ const FormikForm = withFormik({
       password: values.password || ""
     };
   },
+
   handleSubmit(values, props) {
     axiosWithAuth()
       .post("/login", values)

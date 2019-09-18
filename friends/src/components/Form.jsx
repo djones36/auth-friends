@@ -2,19 +2,21 @@ import React from "react";
 import { Form as Formik, Field, withFormik } from "formik";
 import { Segment, Button, Form } from "semantic-ui-react";
 import { axiosWithAuth } from "../utlities/AxiosWithAuth";
+import * as Yup from "yup";
+
 const FriendsForm = props => {
   return (
     <Segment raised compact>
       <Form>
         <Formik>
           <Form.Field>
-            <Field type="text" name="name" placeholder="name" />
+            <Field type="text" name="name" placeholder="name" required />
           </Form.Field>
           <Form.Field>
-            <Field type="number" name="age" placeholder="age" />
+            <Field type="number" name="age" placeholder="age" required />
           </Form.Field>
           <Form.Field>
-            <Field type="email" name="email" placeholder="email" />
+            <Field type="email" name="email" placeholder="email" required />
           </Form.Field>
           <Button type="submit">Submit</Button>
         </Formik>
@@ -31,6 +33,10 @@ const FormikForm = withFormik({
       email: values.email || ""
     };
   },
+  validationSchema: Yup.object().shape({
+    name: Yup.string().required("required"),
+    age: Yup.number().required("required")
+  }),
   handleSubmit(values, { setStatus, resetForm, setSubmitting }, props) {
     axiosWithAuth()
       .post("/friends", values)
